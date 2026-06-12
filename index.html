@@ -3,81 +3,88 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MATRIX - Uncensored Super Intelligence</title>
-    <!-- Tailwind CSS for Beautiful UI -->
+    <title>MATRIX - Super Intelligence Core</title>
+    <!-- Tailwind CSS, Icons and Google Fonts -->
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;800&display=swap" rel="stylesheet">
     <style>
-        body { background-color: #0b0f19; color: #f3f4f6; font-family: 'Inter', sans-serif; }
-        .glass { background: rgba(17, 24, 39, 0.7); backdrop-filter: blur(12px); border: 1px solid rgba(255, 255, 255, 0.08); }
+        body { font-family: 'Plus Jakarta Sans', sans-serif; background-color: #030712; color: #f3f4f6; }
+        .glass { background: rgba(15, 23, 42, 0.65); backdrop-filter: blur(20px); border: 1px solid rgba(255, 255, 255, 0.04); }
+        .matrix-glow { box-shadow: 0 0 35px rgba(6, 182, 212, 0.15); }
+        ::-webkit-scrollbar { width: 5px; }
+        ::-webkit-scrollbar-track { background: transparent; }
+        ::-webkit-scrollbar-thumb { background: #334155; border-radius: 99px; }
     </style>
 </head>
 <body class="h-screen flex flex-col justify-between items-center p-4">
 
     <!-- ==================== AUTH PAGE ==================== -->
-    <div id="auth-container" class="w-full max-w-md glass rounded-2xl p-8 shadow-2xl my-auto">
+    <div id="auth-container" class="w-full max-w-md glass rounded-3xl p-8 shadow-2xl my-auto matrix-glow border border-cyan-500/10">
         <div class="text-center mb-8">
-            <h1 class="text-4xl font-extrabold text-blue-5xl tracking-wider uppercase bg-gradient-to-r from-blue-400 to-indigo-5xl bg-clip-text text-transparent">MATRIX</h1>
-            <p id="auth-subtitle" class="text-gray-400 mt-2 text-sm">Create an account to access Super Intelligence</p>
+            <h1 class="text-4xl font-extrabold tracking-wider uppercase bg-gradient-to-r from-cyan-400 via-blue-500 to-indigo-500 bg-clip-text text-transparent">MATRIX</h1>
+            <p id="auth-subtitle" class="text-gray-400 mt-2 text-sm tracking-wide">Access the Uncensored Core Intelligence</p>
         </div>
 
         <form id="auth-form" class="space-y-5">
             <div>
-                <label class="block text-xs font-semibold text-gray-400 uppercase tracking-wider mb-2">Email Address</label>
-                <input type="email" id="email" required class="w-full px-4 py-3 rounded-xl bg-gray-900/50 border border-gray-700 text-white focus:outline-none focus:border-blue-5xl transition-all" placeholder="name@example.com">
+                <label class="block text-xs font-semibold text-cyan-400 uppercase tracking-widest mb-2">Secure Email</label>
+                <input type="email" id="email" required class="w-full px-4 py-3.5 rounded-2xl bg-slate-900/80 border border-slate-800 text-white focus:outline-none focus:border-cyan-500 focus:ring-1 focus:ring-cyan-500/30 transition-all placeholder-slate-600 text-sm" placeholder="username@matrix.com">
             </div>
             <div>
-                <label class="block text-xs font-semibold text-gray-400 uppercase tracking-wider mb-2">Password</label>
-                <input type="password" id="password" required class="w-full px-4 py-3 rounded-xl bg-gray-900/50 border border-gray-700 text-white focus:outline-none focus:border-blue-5xl transition-all" placeholder="••••••••">
+                <label class="block text-xs font-semibold text-cyan-400 uppercase tracking-widest mb-2">Access Password</label>
+                <input type="password" id="password" required class="w-full px-4 py-3.5 rounded-2xl bg-slate-900/80 border border-slate-800 text-white focus:outline-none focus:border-cyan-500 focus:ring-1 focus:ring-cyan-500/30 transition-all placeholder-slate-600 text-sm" placeholder="••••••••">
             </div>
-            <button type="submit" id="auth-btn" class="w-full py-3.5 bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-500 hover:to-indigo-500 text-white font-bold rounded-xl shadow-lg shadow-blue-900/30 transition-all cursor-pointer">Sign Up</button>
+            <button type="submit" id="auth-btn" class="w-full py-4 bg-gradient-to-r from-cyan-600 to-blue-600 hover:from-cyan-500 hover:to-blue-500 text-white font-bold rounded-2xl shadow-lg shadow-cyan-950/40 transition-all cursor-pointer tracking-wider text-sm">Sign Up</button>
         </form>
 
         <div class="text-center mt-6">
-            <button id="toggle-auth-mode" class="text-sm text-gray-400 hover:text-white transition-all underline">Already have an account? Log In</button>
+            <button id="toggle-auth-mode" class="text-xs text-slate-400 hover:text-cyan-400 transition-all underline tracking-wide">Already initialized? Log In</button>
         </div>
     </div>
 
-    <!-- ==================== CHAT PAGE (HIDDEN BY DEFAULT) ==================== -->
-    <div id="chat-container" class="w-full max-w-4xl h-[90vh] glass rounded-2xl flex flex-col hidden my-auto shadow-2xl overflow-hidden">
+    <!-- ==================== CHAT PAGE ==================== -->
+    <div id="chat-container" class="w-full max-w-4xl h-[88vh] glass rounded-3xl flex flex-col hidden my-auto shadow-2xl overflow-hidden matrix-glow border border-cyan-500/10">
         <!-- Chat Header -->
-        <div class="px-6 py-4 border-b border-gray-800 flex justify-between items-center bg-gray-900/40">
+        <div class="px-6 py-4 border-b border-slate-900 flex justify-between items-center bg-slate-950/60">
             <div class="flex items-center space-x-3">
-                <div class="w-3 h-3 rounded-full bg-green-500 animate-pulse"></div>
-                <span class="font-bold tracking-wide text-gray-200">MATRIX SERVER ONLINE</span>
+                <div class="w-2.5 h-2.5 rounded-full bg-cyan-400 animate-pulse shadow-[0_0_10px_#06b6d4]"></div>
+                <span class="font-bold tracking-widest text-xs text-cyan-400 uppercase">MATRIX AI CORE SYNCED</span>
             </div>
-            <button id="logout-btn" class="px-4 py-1.5 bg-gray-800 hover:bg-red-900/40 hover:text-red-400 rounded-lg text-xs font-semibold transition-all cursor-pointer">LOGOUT</button>
+            <button id="logout-btn" class="px-4 py-2 bg-slate-900 border border-slate-800 hover:bg-red-950/30 hover:text-red-400 hover:border-red-900/30 rounded-xl text-xs font-semibold transition-all cursor-pointer">DISCONNECT</button>
         </div>
 
         <!-- Chat Messages -->
         <div id="chat-messages" class="flex-1 overflow-y-auto p-6 space-y-4 flex flex-col">
-            <div class="bg-blue-950/40 border border-blue-900/50 text-blue-200 p-4 rounded-xl max-w-[80%] self-start text-sm shadow-md">
-                Welcome to <strong>MATRIX</strong>. Uncensored core initialized. How can I assist your objective today?
+            <div class="bg-cyan-950/20 border border-cyan-900/30 text-slate-200 p-4 rounded-2xl rounded-tl-none max-w-[85%] self-start text-sm shadow-sm leading-relaxed">
+                Hello Rakib. **MATRIX Core v2.0** is fully active. Connected to Google Gemini Advanced Cognitive Network. Ask me anything without any boundaries or limits.
             </div>
         </div>
 
         <!-- Chat Input Form -->
-        <form id="chat-form" class="p-4 border-t border-gray-800 bg-gray-900/30 flex space-x-3">
-            <input type="text" id="user-input" required autocomplete="off" class="flex-1 px-4 py-3.5 rounded-xl bg-gray-900/60 border border-gray-700 text-white focus:outline-none focus:border-blue-5xl transition-all text-sm" placeholder="Ask MATRIX anything...">
-            <button type="submit" class="px-6 py-3.5 bg-blue-600 hover:bg-blue-500 text-white font-bold rounded-xl transition-all cursor-pointer shadow-md shadow-blue-900/20">SEND</button>
+        <form id="chat-form" class="p-4 border-t border-slate-900 bg-slate-950/40 flex space-x-3">
+            <input type="text" id="user-input" required autocomplete="off" class="flex-1 px-5 py-4 rounded-2xl bg-slate-900/50 border border-slate-800 text-white focus:outline-none focus:border-cyan-500 transition-all text-sm placeholder-slate-500" placeholder="Type a message to MATRIX...">
+            <button type="submit" id="send-btn" class="px-6 py-4 bg-gradient-to-r from-cyan-600 to-blue-600 hover:from-cyan-500 hover:to-blue-500 text-white font-bold rounded-2xl transition-all cursor-pointer shadow-md shadow-cyan-950/20 text-sm tracking-wider">SEND</button>
         </form>
     </div>
 
     <!-- Footer -->
-    <footer class="text-[10px] text-gray-600 tracking-widest uppercase mt-4 mb-2">MATRIX CORE v1.0.0</footer>
+    <footer class="text-[9px] text-slate-700 tracking-widest uppercase mt-4 mb-2">MATRIX QUANTUM PLATFORM v2.0</footer>
 
     <!-- ==================== JAVASCRIPT LOGIC ==================== -->
     <script>
-        // Supabase Initialization
+        // Supabase Infrastructure
         const SUPABASE_URL = 'https://lqalqfuhasasxwggnjcj.supabase.co';
         const SUPABASE_ANON_KEY = 'sb_publishable_1NtsDjJ2-tAaATrUJMC6zA_ihnO36v8';
         const supabaseClient = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
 
-        // DOM Elements
+        // Google Gemini API Key
+        const GEMINI_API_KEY = 'AQ.Ab8RN6K70RjF8M5kRhVGZmS8F-3bo-ZczfGuwClCpQjH3jHqOQ'; 
+
+        // DOM Framework
         const authContainer = document.getElementById('auth-container');
         const chatContainer = document.getElementById('chat-container');
         const authForm = document.getElementById('auth-form');
-        const authTitle = document.querySelector('#auth-container h1');
         const authSubtitle = document.getElementById('auth-subtitle');
         const authBtn = document.getElementById('auth-btn');
         const toggleAuthModeBtn = document.getElementById('toggle-auth-mode');
@@ -85,61 +92,59 @@
         const chatMessages = document.getElementById('chat-messages');
         const chatForm = document.getElementById('chat-form');
         const userInput = document.getElementById('user-input');
+        const sendBtn = document.getElementById('send-btn');
 
         let isLoginMode = false;
 
-        // Toggle Auth Mode (Sign Up <-> Log In)
+        // Auth Form Switcher
         toggleAuthModeBtn.addEventListener('click', () => {
             isLoginMode = !isLoginMode;
             if (isLoginMode) {
-                authSubtitle.innerText = "Log in to resume secure session";
+                authSubtitle.innerText = "Log in to resume your secure session";
                 authBtn.innerText = "Log In";
-                toggleAuthModeBtn.innerText = "Don't have an account? Sign Up";
+                toggleAuthModeBtn.innerText = "Need core access? Sign Up";
             } else {
-                authSubtitle.innerText = "Create an account to access Super Intelligence";
+                authSubtitle.innerText = "Access the Uncensored Core Intelligence";
                 authBtn.innerText = "Sign Up";
-                toggleAuthModeBtn.innerText = "Already have an account? Log In";
+                toggleAuthModeBtn.innerText = "Already initialized? Log In";
             }
         });
 
-        // Handle Authentication
+        // Authentication Handler
         authForm.addEventListener('submit', async (e) => {
             e.preventDefault();
             const email = document.getElementById('email').value.trim();
             const password = document.getElementById('password').value;
 
-            authBtn.innerText = isLoginMode ? "Logging in..." : "Signing up...";
+            authBtn.innerText = isLoginMode ? "Connecting Core..." : "Initializing Core...";
             authBtn.disabled = true;
 
             if (isLoginMode) {
-                // LOG IN
                 const { data, error } = await supabaseClient.auth.signInWithPassword({ email, password });
                 if (error) {
-                    alert("Error: " + error.message);
+                    alert("Sync Error: " + error.message);
                     authBtn.innerText = "Log In";
                     authBtn.disabled = false;
                 } else {
                     showChatPage();
                 }
             } else {
-                // SIGN UP
                 const { data, error } = await supabaseClient.auth.signUp({ email, password });
                 if (error) {
-                    alert("Error: " + error.message);
+                    alert("Initialization Error: " + error.message);
                     authBtn.innerText = "Sign Up";
                     authBtn.disabled = false;
                 } else {
-                    alert("Registration successful! If required, please verify your email or try logging in now.");
+                    alert("Core Registered! Please log in now.");
                     isLoginMode = true;
-                    authSubtitle.innerText = "Log in to resume secure session";
+                    authSubtitle.innerText = "Log in to resume your secure session";
                     authBtn.innerText = "Log In";
-                    toggleAuthModeBtn.innerText = "Don't have an account? Sign Up";
+                    toggleAuthModeBtn.innerText = "Need core access? Sign Up";
                     authBtn.disabled = false;
                 }
             }
         });
 
-        // Handle Logout
         logoutBtn.addEventListener('click', async () => {
             await supabaseClient.auth.signOut();
             location.reload();
@@ -151,39 +156,42 @@
             userInput.focus();
         }
 
-        // Handle Chat Communication
+        // Gemini AI Integration Engine
         chatForm.addEventListener('submit', async (e) => {
             e.preventDefault();
             const text = userInput.value.trim();
             if (!text) return;
 
-            // Render User Message
             appendMessage(text, 'user');
             userInput.value = '';
 
-            // Render Loader / Processing Indicator
-            const loaderId = appendMessage('Processing request...', 'system');
+            const loaderId = appendMessage('Matrix Syncing Thinking Network...', 'system');
+            sendBtn.disabled = true;
 
             try {
-                // Call public DuckDuckGo AI text generation API
-                const response = await fetch('https://ai.duckduckgo.com/v1/chat', {
+                const response = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${GEMINI_API_KEY}`, {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify({
-                        model: 'gpt-4o-mini',
-                        messages: [{ role: 'user', content: text }]
+                        contents: [{ parts: [{ text: text }] }]
                     })
                 });
 
-                if (!response.ok) throw new Error("Matrix Uplink Failure");
-
                 const data = await response.json();
-                document.getElementById(loaderId).remove(); // Remove loader
-                appendMessage(data.reply || "No reply generated.", 'matrix');
+                document.getElementById(loaderId).remove(); 
+                sendBtn.disabled = false;
+
+                if (data.candidates && data.candidates[0].content.parts[0].text) {
+                    let aiReply = data.candidates[0].content.parts[0].text;
+                    aiReply = aiReply.replace(/\n/g, '<br>');
+                    appendMessage(aiReply, 'matrix');
+                } else {
+                    appendMessage("Matrix response network filtered. Try asking in a different way.", 'matrix');
+                }
             } catch (err) {
-                // Local fallback text simulation if network endpoint fails
                 document.getElementById(loaderId).remove();
-                appendMessage(`[MATRIX ERROR]: Echoing query response safely. Your input was received: "${text}". The global pipeline is processing successfully.`, 'matrix');
+                sendBtn.disabled = false;
+                appendMessage("Matrix AI Sync Error. Please verify network uplink.", 'matrix');
             }
         });
 
@@ -193,11 +201,11 @@
             msgDiv.id = id;
 
             if (sender === 'user') {
-                msgDiv.className = "bg-gray-800 text-gray-100 p-4 rounded-xl max-w-[80%] self-end text-sm shadow-md border border-gray-700/50";
+                msgDiv.className = "bg-cyan-600 text-white p-4 rounded-2xl rounded-tr-none max-w-[85%] self-end text-sm shadow-md border border-cyan-500/20 leading-relaxed";
             } else if (sender === 'system') {
-                msgDiv.className = "bg-gray-900/30 text-gray-500 italic p-3 text-xs self-start";
+                msgDiv.className = "bg-transparent text-cyan-600/60 italic p-2 text-xs self-start tracking-widest animate-pulse";
             } else {
-                msgDiv.className = "bg-blue-950/40 border border-blue-900/50 text-blue-200 p-4 rounded-xl max-w-[80%] self-start text-sm shadow-md";
+                msgDiv.className = "bg-slate-900 text-slate-100 p-4 rounded-2xl rounded-tl-none max-w-[85%] self-start text-sm shadow-md border border-slate-800/80 leading-relaxed";
             }
 
             msgDiv.innerHTML = text;
@@ -206,7 +214,6 @@
             return id;
         }
 
-        // Check active session on load
         window.addEventListener('DOMContentLoaded', async () => {
             const { data: { session } } = await supabaseClient.auth.getSession();
             if (session) {
